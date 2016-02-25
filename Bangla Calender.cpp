@@ -56,8 +56,6 @@ for(i=1;i<=test;i++)
 {
 cout<<"Enter The English Day(day/month/year):\n";
     cin>>dd>>mm>>yy;
-    if(lip(yy) && mm==3 && dd==14 )
-        cout<<"Case "<<i<<": 31, Falgun, "<<yy-594<<endl;
     d(dd,mm,yy-594,i);
 }
 return 0;
