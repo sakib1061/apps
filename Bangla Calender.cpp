@@ -1,9 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-char bang[12][10]={"Poush", "Magh", "Falgun", "Chaitra","Baishakh", "Jaishtha", "Ashar", "Sraban", "Bhadra", "Ashwin", "Kartik" ,"Agrahayan"};
-int ff[12]={31,28,31,30,31,30,31,31,30,31,30,31};
-int rr[12]={30,30,30,30,31,31,31,31,31,30,30,30};
+/////Auther : Sakib@NSTU///////
 int lip(int y)
 {
     if(y%100==0)
@@ -23,6 +20,10 @@ int lip(int y)
 }
 void d(int dd,int mm,int yy,int c)
 {
+    int r=lip(yy+594);
+    char bang[12][10]={"Poush", "Magh", "Falgun", "Chaitra","Baishakh", "Jaishtha", "Ashar", "Sraban", "Bhadra", "Ashwin", "Kartik" ,"Agrahayan"};
+int ff[12]={31,28+r,31,30,31,30,31,31,30,31,30,31};
+int rr[12]={30,30,30+r,30,31,31,31,31,31,30,30,30};
     int de=18,me=1,i,j;
     for(i=1;i<=12;i++)
     {
