@@ -69,12 +69,18 @@ int main()
                     p=j-1;
                 break;
             }
+            else if(c==b)
+            {
+                break;
+            }
         }
-        c=(p*(p+1))/2.0;
+        c=(p*(p+1));
+        c/=2;
+//        cout<<c<<endl;
 //        cout<<c<<endl;
         cout<<p<<endl;
         cout<<b-c<<endl;
-
+//999999998765257141
     }
 }
 ///Never Give Up///
