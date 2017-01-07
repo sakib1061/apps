@@ -13,7 +13,7 @@ public class Clock {
 	private JFrame frame;
 	private JLabel label1,label2,label3,label4,label5,label6;
 	private String S[]={"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
-	private String bang[]={"Poush", "Magh", "Falgun", "Chaitra","Baishakh", "Jaishtha", "Ashar", "Sraban", "Bhadra", "Ashwin", "Kartik" ,"Agrahayan","Poush"};
+	private String bang[]={"Poush", "Magh", "Falgun", "Chaitra","Baishakh", "Jaishtha", "Ashar", "Sraban", "Bhadra", "Ashwin", "Kartik" ,"Agrahayan"};
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
@@ -87,23 +87,26 @@ public class Clock {
 		int Day=calander.get(Calendar.DAY_OF_YEAR);
 		int Cou[]={13,43,73+lp,103+lp,134+lp,165+lp,196+lp,227+lp,258+lp,288+lp,318+lp,348+lp};
 		yy=year-593;
-		if(Day<(114+lp))
+		if(Day<(103+lp))
 			yy--;
-		for(int i=0;i<12;i++)
+		if(month==0 && day<14)
 		{
-			if(i<=10) {
-			if(Day>Cou[i] && Day<=Cou[i+1])
-			{
-				dd=Day-Cou[i];
-				mm=i+1;
-				break;
+			dd=17+day;
+			mm=0;
+		}
+		else if(month==11 && day>14)
+		{
+			dd=day-14;
+			mm=0;
+		}
+		else {
+			if(Day>Cou[month] && Day<=Cou[month+1]) {
+			dd=Day-Cou[month];
+			mm=month+1;
 			}
-			}
-			else
-			{
-				dd=Day-Cou[11];
-				mm=0;
-				break;
+			else{
+				dd=Day-Cou[month-1];	
+			mm=month;
 			}
 		}
 		label3.setText("Bangla Date: "+dd+"/"+bang[mm]+"/"+yy);
@@ -134,6 +137,7 @@ public class Clock {
 	private void initialize() {
 		frame = new JFrame("Digital Clock");
 		frame.getContentPane().setBackground(Color.WHITE);
+		frame.setResizable(false);
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
